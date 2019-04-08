@@ -42,10 +42,16 @@ foreach( $_SESSION['basket'] as $basketItem ){
                 <div class="basket-box-item-name"><?=$productItem['name']?></div>
             </div>
         <?php endforeach;?>
+
+        <form action="/basket.php">
+            <input type="text" name="Ваше имя">
+            <button type="submit">Оформить заказ</button>
+        </form>
     <?php else: ?>
         <h3>Корзина пуста</h3>
     <?php endif; ?>
 </div>
+
 
 <?php 
     include($_SERVER['DOCUMENT_ROOT'].'/parts/footer.php');
