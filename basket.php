@@ -17,9 +17,9 @@
         'products' => []
     ];
 
-    echo "<pre>";
-    print_r($_SESSION);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_SESSION);
+    // echo "</pre>";
 
     foreach($_SESSION['basket'] as $basketItem){
         $sql = "SELECT * FROM products WHERE id  = {$basketItem['product_id']}";
@@ -73,6 +73,6 @@
             </div>
         </div>
 <?php
-    include($_SERVER['DOCUMENT-ROOT'].'/parts/footer.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/parts/footer.php');
 ?>
     
