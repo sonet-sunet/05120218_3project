@@ -8,6 +8,6 @@ btn.addEventListener('click', function(){
     xhr.send();
 
     xhr.addEventListener('load', ()=>{
-        basket.load(); 
+    basket.load();
     });
 });

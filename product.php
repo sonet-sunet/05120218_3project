@@ -49,7 +49,7 @@ if( isset( $_GET['id'] ) ){
             <img src="<?=$template['product']['img_src']?>">
         </div>
         <div class="product-name"><?=$template['product']['name']?></div>
-        <button data-product-id='<?=$template['product']['id']?>' class='add-to-basket'>Добавить в корзину</button>
+        <button  data-product-id='<?=$template['product']['id']?>' class="add-to-basket">Добавить в корзину</button>
     </div>
 <?php else: ?>
     <h2>Такого товара нет</h2>

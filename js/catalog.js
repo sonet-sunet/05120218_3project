@@ -75,9 +75,6 @@ class Catalog{
     }
     preloadOn(){
         this.el.classList.add('preload');
-        //Необходимо метод скрытия и показа реализовать через добавление
-        //класса (css) к элементу .catalog
-        //этот класс должен работать на измении opacity
     }
     preloadOff(){
         this.el.classList.remove('preload');
@@ -108,12 +105,6 @@ class Catalog{
     }
     load(page = 1){
         this.preloadOn();
-    
-        //Тут должен быть ajax-запрос на получениие данных о карточках из БД
-        //Запрос должен идти на файл /handlers/catalog_handler.php
-        //Получамем от бекенда формат json
-        //Создаем и заполняем массив this.products
-        //И рендерим его
 
         let xhr = new XMLHttpRequest();
         let path = `/handlers/catalog_handler.php?page=${page}&section=${this.section}`;
@@ -124,7 +115,6 @@ class Catalog{
 
         xhr.open('GET', path);
         xhr.send();
-        //Тут необходимо написать методы xhr.open() xhr.send()
         xhr.addEventListener('load', ()=>{
             let data = JSON.parse(xhr.responseText);
             this.paginationRender( data.pagination );
@@ -134,7 +124,6 @@ class Catalog{
                 this.products.push( new Product(productItem.name, productItem.price,
                     productItem.img_src, productItem.id) );
             })
-            //Тут пойдет код заполнения массива this.products
 
             this.render();
             this.preloadOff();

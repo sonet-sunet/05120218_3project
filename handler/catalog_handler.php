@@ -18,7 +18,7 @@
     ";
 
     if( !empty( $filter_price ) ){
-        $sql_count_rows .= "AND price >={$filter_price[0]} AND  price <={$filter_price[1]}";  
+        $sql_count_rows .= "AND price >={$filter_price[0]} AND  price <={$filter_price[0]}";  
     }
 
     $result_count_rows = mysqli_query($db, $sql_count_rows);
@@ -27,7 +27,6 @@
 
     $count_products_on_page = 5;
 
-    // ceil() - округление в большую сторону
     $count_page = ceil($count_rows / $count_products_on_page);
 
     $response = [
@@ -39,11 +38,7 @@
     ];
 
     $from_row = $count_products_on_page * ($page - 1);
-    /*
-        1 - 0
-        2 - 5
-        3 - 10
-    */
+
     $sql_products = "
         SELECT * FROM products 
         WHERE id IN 
@@ -54,14 +49,13 @@
         )";
 
     if( !empty( $filter_price ) ){
-        $sql_products  .= " AND price >={$filter_price[0]} AND  price <={$filter_price[1]}";  
+        $sql_products  .= " AND price >={$filter_price[0]} AND  price <={$filter_price[0]}";  
     }
 
     $sql_products .= " LIMIT {$from_row}, {$count_products_on_page}";
     $result_products = mysqli_query($db, $sql_products);
 
     while( $row = mysqli_fetch_assoc($result_products) ){
-        // d($row);
         $response['products'][] = $row;
     }
 
