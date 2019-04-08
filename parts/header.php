@@ -1,4 +1,4 @@
-<?php 
+<?php
     require_once($_SERVER['DOCUMENT_ROOT'].'/config/configuration.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/config/functions.php');
 ?>
@@ -9,33 +9,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php foreach($pageConfig['cssFiles'] as $path_css): ?>
-    <link rel="stylesheet" href="<?=$path_css?>">
-    <?php endforeach; ?>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title><?=$pageConfig['title']?></title>
+    <?php foreach($pageConfig['cssFiles'] as $path_css): ?>
+        <link rel="stylesheet" href="<?=$path_css?>">
+    <?php endforeach;?>
 </head>
 <body>
     <div class="wrapper">
         <div class="header">
-            <div class="header-left">
-                <a href="/" class="logo"></a>
-                <div class="links">
-                    <a href="#">Женщинам</a>
-                    <a href="#">Мужчинам</a>
-                    <a href="#">Детям</a>
+            <div class="header_start">
+                <div class="logo"></div>
+                <div class="main_menu">
+                    <a href="/catalog.php?section=girl">Женщинам</a>
+                    <a href="/catalog.php?section=man">Мужчинам</a>
+                    <a href="/catalog.php?section=child">Детям</a>
                     <a href="#">Новинки</a>
                     <a href="#">О нас</a>
                 </div>
             </div>
-            <div class="header-right">
-                <div class="hallo">
-                    <div class="icon"></div>
-                    <div class="hallo-content"></div>
-                    <div class="hallo-exit">(выйти)</div>
+            <div class="header_end">
+                <div class="account">
+                    <div class="pic"></div>
+                    <a href="#">Войти</a>
                 </div>
-                <div class="basket-count">
-                    <div class="icon"></div>
-                    <div class="basket-count-content"></div>
+                <div class="basket">
+                    <div class="pic"></div>
+                    <a href="/basket.php">Корзина(<span>0</span>)</a>
                 </div>
             </div>
         </div>
