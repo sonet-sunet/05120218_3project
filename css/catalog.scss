@@ -1,6 +1,47 @@
 .catalog{
     transition: 1s all;
+
+    &_products{
+        display: flex;
+
+        &_item{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 20%;
+
+            img{
+                width: 100%;
+                height: 200px;
+                
+            }
+        }
+    }
+
     &.preload{
-        opacity: 0.5;
+        opacity: 0.4;
+    }
+}
+
+.catalog{
+    &_pagination{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        &_item{
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            margin-right: 10px;
+
+            h2{
+                width: 100%;
+            }
+//верстка каталога, адаптивка 
+            &.active{
+                background-color: rgb(253, 109, 133);
+            }
+        }
     }
 }
