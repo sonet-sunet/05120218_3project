@@ -15,16 +15,14 @@
     <?php endforeach; ?>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="/catalog.php?section=man">Мужское</a>
+            <a href="/catalog.php?section=girl">Женское</a>
+            <a href="/catalog.php?section=child">Детское</a>
+        </nav>
+        <div class="basket header-basket">
+            <a href="/basket.php">Товаров(<span>0</span>)</a>
+        </div>
+    </header>
     <div class="wrapper">
-        <header>
-            <nav>
-                <a href="/catalog.php?section=man">Мужское</a>
-                <a href="/catalog.php?section=girl">Женское</a>
-                <a href="/catalog.php?section=child">Детское</a>
-                <a href="/catalog.php?section=new">Новое</a>
-                <a href="/catalog.php?section=old">Старое</a>
-            </nav>
-            <div class="basket header-basket">
-                <a href="/basket.php">Товаров (<span>0</span>)</a>
-            </div>
-        </header>
