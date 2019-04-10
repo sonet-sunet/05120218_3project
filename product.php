@@ -2,11 +2,12 @@
 $pageConfig = [
     'title'=>'Карточка товара',
     'cssFiles'=>[
-        '/css/style.css'
+        '/css/style.css',
+        '/css/product.css'
     ],
     'jsFiles'=>[
         '/js/script.js',
-        '/js/product.js',
+        '/js/product.js'
     ],
 ];
 include($_SERVER['DOCUMENT_ROOT'].'/parts/header.php');

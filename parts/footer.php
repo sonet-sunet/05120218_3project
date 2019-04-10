@@ -2,9 +2,9 @@
             <div class="footer_block">
                 <h3>Коллекции</h3>
                 <div class="list">
-                    <a href="#">Женщинам</a>
-                    <a href="#">Мужчинам</a>
-                    <a href="#">Детям</a>
+                    <a href="/catalog.php?section=girl">Женщинам</a>
+                    <a href="/catalog.php?section=man">Мужчинам</a>
+                    <a href="/catalog.php?section=child">Детям</a>
                     <a href="#">Новинки</a>
                 </div>
             </div>

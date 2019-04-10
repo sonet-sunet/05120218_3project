@@ -77,8 +77,8 @@ class Catalog {
         selectt.name = 'catalog_category';
         this.filters.category.forEach((categoryArr) => {
             let option = document.createElement('option');
-            option.innerHTML = `${categoryArr[1]}`;
-            option.value = `${categoryArr[2]}`;
+            option.innerHTML = `${categoryArr.name}`;
+            option.value = `${categoryArr.code}`;
 
             selectt.appendChild(option);
         });

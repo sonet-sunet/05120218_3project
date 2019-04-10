@@ -73,7 +73,7 @@
     }
 
 
-    $sql_name_category = "SELECT * FROM category";
+    $sql_name_category = "SELECT name, code FROM category";
     $result_name_category = mysqli_query($db, $sql_name_category);
     while( $row = mysqli_fetch_assoc($result_name_category) ){
         $response['category'][]= $row;
