@@ -18,7 +18,7 @@
     ";
 
     if (!empty($filter_price)){
-        $sql_count_rows .= "AND price >= {$filter_price[0]} AND price <= {$filter_price[0]}";
+        $sql_count_rows .= "AND price >= {$filter_price[0]} AND price <= {$filter_price[1]}";
     }
 
     $result_count_rows = mysqli_query($db, $sql_count_rows);
@@ -46,7 +46,7 @@
         )
     ";
     if (!empty($filter_price)){
-        $sql_products .= " AND price >= {$filter_price[0]} AND price <= {$filter_price[0]}";
+        $sql_products .= " AND price >= {$filter_price[0]} AND price <= {$filter_price[1]}";
     }
     $sql_products .= " LIMIT {$from_row}, {$count_products_on_page}";
     $result_products = mysqli_query($db, $sql_products);
