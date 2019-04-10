@@ -11,11 +11,10 @@
         ],
     ];
 
-    $template = [
-        'section' => (isset($_GET['section'])) ? $_GET['section'] : 'man'
-    ];
-
-    include($_SERVER['DOCUMENT_ROOT'].'/parts/header.php');
+$template = [
+    'section' =>(isset($_GET['section'])) ? $_GET['section'] : 'man'
+]; 
+include($_SERVER['DOCUMENT_ROOT'].'/parts/header.php');
 ?>
 
     <div class="catalog" data-section='<?=$template['section']?>'>

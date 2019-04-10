@@ -1,3 +1,5 @@
+
+
 class Product{
     constructor(name, price, img_src, id){ //создаёт объект на основе класса
         this.name = name; //1nmae - свойство, 2name - название
@@ -28,7 +30,7 @@ class Category{
     }
 }
 
-class Catalog{
+class Catalog {
     constructor(){
         this.el = document.querySelector('.catalog');
         this.section = this.el.getAttribute('data-section');
@@ -36,7 +38,7 @@ class Catalog{
         this.filters = {
             price:[
                 [0, 1000],
-                [1000, 2000],
+                [1000,2000],
                 [2000, 3500],
                 [3500, 5000],
                 [5000, 10000],
@@ -59,7 +61,6 @@ class Catalog{
             let option = document.createElement('option');
             option.innerHTML = `${priceArr[0]}-${priceArr[1]} руб.`;
             option.value = `${priceArr[0]}-${priceArr[1]}`;
-
             select.appendChild(option);
        });
        let that = this;
@@ -90,6 +91,7 @@ class Catalog{
 
        this.el.querySelector('.catalog_filters').appendChild(selectt);
     }
+
     render(){
         let catalogProductsBox = this.el.querySelector('.catalog_products');
         catalogProductsBox.innerHTML = [];
@@ -109,23 +111,24 @@ class Catalog{
         paginationEl.innerHTML = '';
 
         for (let i=1; i<=paginationConfig.countPage; i++){
-            let div = document.createElement('div');
-            div.classList.add('catalog_pagination_item');
+            let paginationItem = document.createElement('div');
+            paginationItem.classList.add('catalog_pagination_item');
 
             if (i == paginationConfig.nowPage){
-                div.classList.add('active');
+                paginationItem.classList.add('active');
             }
 
-            div.innerHTML = i;
-            div.setAttribute('data_page_id', i);
+            paginationItem.innerHTML = i;
+            paginationItem.setAttribute('data_page_id', i);
 
+            paginationItem.setAttribute('data-page-id', i);
             let that = this;
-            div.addEventListener('click', function(){
+            paginationItem.addEventListener('click', function(){
                 let pageNum = this.getAttribute('data_page_id');
                 that.load(pageNum);
             });
 
-            paginationEl.appendChild(div);
+            paginationEl.appendChild( paginationItem);
         }
     }
     load(page = 1){
