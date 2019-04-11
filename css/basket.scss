@@ -1,0 +1,228 @@
+<<<<<<< HEAD
+.head{
+    text-align: center;
+
+    h2{
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+
+    p{
+        color: #8a8a8a;
+        margin-bottom: 50px;
+        margin-top: 10px;
+        font: italic 400 17px 'Noto Serif', serif;
+    }
+}
+.basket_box{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px 0;
+
+    .properties{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+
+        &::after{
+            content: "";
+            position: absolute;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #f1efef;
+        }
+
+        div{
+            display: flex;
+            text-align: center;
+
+            p{
+                width: 130px;
+                text-transform: uppercase;
+                font-size: 13px;
+                color: #ababab;           
+            }
+
+            &.properties_end{
+                p{
+                    width: 120px;
+                }
+            }
+        }
+    }
+
+    &_items{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 14px;
+
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: #f1efef;
+        }
+
+        &_info_start{
+            display: flex;
+            align-items: center;
+
+            .img_src{
+                width: 65px;
+                height: 75px;
+                margin-left: 12px;
+            }
+
+            &_main_info{
+                margin-left: 43px;
+            }
+        }
+
+        &_info_end{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 39%;
+
+            div{
+                width: 120px;
+                text-align: center;
+            }
+
+            .delete{
+                width: 20px;
+                height: 20px;
+                background-color: grey;
+                text-align: center;
+                margin-left: 50px;
+                cursor: pointer; 
+            }
+        }
+    }
+}
+.final_price{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: #f1efef;
+    margin: 5px 0;
+
+    span{
+        margin: 0 40px 0 20px;
+        color: orange;
+    }
+}
+=======
+.basket-box {
+    display: table;
+    border-collapse: collapse; 
+    width: 100%;
+
+    tr {
+        border-bottom: 1px solid black;
+
+        th {
+            text-align: start;
+            padding: 10px;
+        }
+
+        .photo { 
+            width: 120px;
+            padding: 10px 0;
+
+            div {
+                width: 100px;
+                height: 100px;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                border: 1px solid #bdbdbd;
+                margin: 0 auto;
+            }
+        }
+
+        .name {
+            padding-left: 10px;
+            width: 55%;
+        }
+
+        .size {
+            text-align: center;
+        }
+
+        .count {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 45px;
+            border: none;
+
+            .bnts {
+               
+                div {
+                    display: block;
+                    background-color: black;
+                    color: white;
+                    width: 15px;
+                    height: 15px;
+                    margin-top: 2px;
+                    margin-left: 10px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .final-price {
+            text-align: center;
+        }
+
+        .del {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 45px;
+                background-color: black;
+                width: 1px;
+                height: 20px;
+                transform: rotate(45deg);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: 45px;
+                background-color: black;
+                width: 1px;
+                height: 20px;
+                transform: rotate(-45deg);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+    }         
+}
+
+>>>>>>> origin/julia-version

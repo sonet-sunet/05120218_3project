@@ -1,0 +1,261 @@
+<<<<<<< HEAD
+.head {
+  text-align: center;
+}
+
+.head h2 {
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.head p {
+  color: #8a8a8a;
+  margin-bottom: 50px;
+  margin-top: 10px;
+  font: italic 400 17px 'Noto Serif', serif;
+}
+
+.basket_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 100px 0;
+}
+
+.basket_box .properties {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.basket_box .properties::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f1efef;
+}
+
+.basket_box .properties div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.basket_box .properties div p {
+  width: 130px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #ababab;
+}
+
+.basket_box .properties div.properties_end p {
+  width: 120px;
+}
+
+.basket_box_items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+}
+
+.basket_box_items::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #f1efef;
+}
+
+.basket_box_items_info_start {
+=======
+.basket-box {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.basket-box tr {
+  border-bottom: 1px solid black;
+}
+
+.basket-box tr th {
+  text-align: start;
+  padding: 10px;
+}
+
+.basket-box tr .photo {
+  width: 120px;
+  padding: 10px 0;
+}
+
+.basket-box tr .photo div {
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid #bdbdbd;
+  margin: 0 auto;
+}
+
+.basket-box tr .name {
+  padding-left: 10px;
+  width: 55%;
+}
+
+.basket-box tr .size {
+  text-align: center;
+}
+
+.basket-box tr .count {
+  text-align: center;
+>>>>>>> origin/julia-version
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+<<<<<<< HEAD
+}
+
+.basket_box_items_info_start .img_src {
+  width: 65px;
+  height: 75px;
+  margin-left: 12px;
+}
+
+.basket_box_items_info_start_main_info {
+  margin-left: 43px;
+}
+
+.basket_box_items_info_end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 39%;
+}
+
+.basket_box_items_info_end div {
+  width: 120px;
+  text-align: center;
+}
+
+.basket_box_items_info_end .delete {
+  width: 20px;
+  height: 20px;
+  background-color: grey;
+  text-align: center;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.final_price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #f1efef;
+  margin: 5px 0;
+}
+
+.final_price span {
+  margin: 0 40px 0 20px;
+  color: orange;
+=======
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 45px;
+  border: none;
+}
+
+.basket-box tr .count .bnts div {
+  display: block;
+  background-color: black;
+  color: white;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.basket-box tr .final-price {
+  text-align: center;
+}
+
+.basket-box tr .del {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.basket-box tr .del::before {
+  content: '';
+  position: absolute;
+  top: 45px;
+  background-color: black;
+  width: 1px;
+  height: 20px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.basket-box tr .del:after {
+  content: '';
+  position: absolute;
+  top: 45px;
+  background-color: black;
+  width: 1px;
+  height: 20px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+>>>>>>> origin/julia-version
+}
+/*# sourceMappingURL=basket.css.map */
