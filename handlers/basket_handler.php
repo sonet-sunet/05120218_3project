@@ -1,9 +1,13 @@
 <?php
+function d($ar){
+    echo "<pre>";
+    print_r( $ar );
+    echo "</pre>";
+}
     session_start();
-
     $response = [
-        'basket'=>[
-            'count'=> 0,
+        'basket' => [
+            'count' => 0
         ]
     ];
 
@@ -11,6 +15,7 @@
         if (!isset($_SESSION['basket'])){
             $_SESSION['basket'] = [];
         }
+    
 
         $is_find = false;
         foreach($_SESSION['basket'] as $key=>$basketItem){
@@ -24,7 +29,7 @@
         if($is_find == false){
             $_SESSION['basket'][] = [
                 'product_id' => $_GET['product_id'],
-                'count'=> 1
+                'count' => 1
             ];
         }
     }
@@ -34,5 +39,6 @@
             $response['basket']['count']+=$basketItem['count'];
         }
     }
+    echo json_encode($response);
 
     echo json_encode($response);

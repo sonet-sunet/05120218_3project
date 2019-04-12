@@ -2,7 +2,7 @@ let basketItem = document.querySelector('.basket_box_items');
 let deleteButton = document.querySelector('.basket_box_items_info_end .delete');
 let basket = {
     el: document.querySelector('.basket span'),
-    load(){
+    load() {
         let xhr = new XMLHttpRequest();
         xhr.open('GET', '/handlers/basket_handler.php');
         xhr.send();
@@ -28,5 +28,5 @@ let basket = {
     }
 }
 
-basket.load();
-basket.remove();
+// basket.load();
+// basket.remove();
