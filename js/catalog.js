@@ -1,3 +1,5 @@
+
+
 class Product{
     constructor(name, price, img_src, id){ //создаёт объект на основе класса
         this.name = name; //1name - свойство, 2name - название
@@ -19,6 +21,13 @@ class Product{
         `;
         parentEl.appendChild(productItem);
     } 
+}
+
+class Category{
+    constructor(code, name){ //создаёт объект на основе класса
+        this.name = name;
+        this.code = code;
+    }
 }
 
 class Catalog {
@@ -134,7 +143,7 @@ class Catalog {
         xhr.addEventListener('load', () => {
             let data = JSON.parse(xhr.responseText);
             this.paginationRender(data.pagination);
-            this.products = [];
+            // this.products = [];
             data.products.forEach((productItem)=>{
               this.products.push( new Product (productItem.name, productItem.price, productItem.img_src, productItem.id) );  
             });

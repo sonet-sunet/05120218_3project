@@ -20,7 +20,7 @@
     <div class="wrapper">
         <div class="header">
             <div class="header_start">
-                <div class="logo"></div>
+                <a href="/" class="logo"></a>
                 <div class="main_menu">
                     <a href="/catalog.php?section=girl">Женщинам</a>
                     <a href="/catalog.php?section=man">Мужчинам</a>
