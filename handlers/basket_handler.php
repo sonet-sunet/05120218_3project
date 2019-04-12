@@ -16,6 +16,7 @@ function d($ar){
         if(!isset($_SESSION['basket'])){
             $_SESSION['basket'] = [];
         }
+    
 
         $is_find = false;
         foreach($_SESSION['basket'] as $key => $basketItem) {
@@ -28,7 +29,7 @@ function d($ar){
         if($is_find == false) {
             $_SESSION['basket'][]= [
                 'product_id' => $_GET['product_id'],
-                'count'=> 1
+                'count' => 1
             ];
         }
     }

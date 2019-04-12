@@ -1,25 +1,24 @@
 class Product{
-    constructor(name, price, photo, id){
-        this.name = name; 
+    constructor(name, price, img_src, id){ //создаёт объект на основе класса
+        this.name = name; //1name - свойство, 2name - название
         this.price = price;
-        this.photo = photo; 
-        this.id  = id; 
+        this.img_src = img_src;
+        this.id = id;
     }
     show(){
-        alert(`${this.name} ${this.price} ${this.photo}`);
+        alert(`${this.name} ${this.price} ${this.img_src}`);
     }
     render(parentEl){
         let productItem = document.createElement('a');
         productItem.href = `/product.php?id=${this.id}`;
         productItem.classList.add('catalog-products-item');
         productItem.innerHTML = `
-            <img src='${this.photo}'>
+            <div class="img" style="background-image: url('${this.img_src}')"></div>
             <h2>${this.name}</h2>
             <p>${this.price} руб.</p>
         `;
-
         parentEl.appendChild(productItem);
-    }
+    } 
 }
 
 class Catalog {
@@ -33,65 +32,58 @@ class Catalog {
                 [1000,2000],
                 [2000, 3500],
                 [3500, 5000],
-                [5000, 20000]
+                [5000, 10000],
+                [10000, 20000]
             ],
             activePrice: null,
-            category:[
-                ['outerwear' ,'Верхняя одежда'],
-                ['jeans', 'Джинсы'],
-                ['shoes', 'Обувь'],
-                ['accessories', 'Аксессурары'] 
-            ],
+            category: [],
             activeCategory: null
-        }
-
+        };
         this.renderFilterPrice();
-        this.renderFilterCategory();
-
     }
+    // addProducts(productsArray){
+    //     productsArray.forEach((product) => {
+    //         this.products.push(product);
+    //     });
+    // }
     renderFilterPrice(){
-        let select = document.createElement('select');
-        select.name = 'filter-price';
-        this.filters.price.forEach((priseArr) => {
+        let select = document.querySelector('.catalog-filters-price select');
+        this.filters.price.forEach((priceArr) =>{
             let option = document.createElement('option');
-            option.innerHTML = `${priseArr[0]}-${priseArr[1]} руб.`;
-            option.value = `${priseArr[0]}-${priseArr[1]}`;
+            option.innerHTML = `${priceArr[0]}-${priceArr[1]} руб.`;
+            option.value = `${priceArr[0]}-${priceArr[1]}`;
             select.appendChild(option);
-        });
-        this.el.querySelector('.catalog-filters').appendChild(select);
+       });
+       let that = this;
 
-
-        let that = this;
-        select.addEventListener('change', function(){
-            that.filters.activePrice = this.value;
-            that.load();
-        });
+       select.addEventListener('change', function(){
+           that.filters.activePrice = this.value;
+           that.load();
+       })
     }
-
-    renderFilterCategory(){
-        let selectt = document.createElement('select');
-        selectt.name = 'filter-category';
-        this.filters.category.forEach((categoryArr, index) => {
+    renderCategory(){
+        let selectt = document.querySelector('.catalog-filters-category select');
+        selectt.innerHTML = '';
+        this.filters.category.forEach((categoryArr) => {
             let option = document.createElement('option');
-            option.innerHTML = `${categoryArr[1]}`;
-            option.value = `${categoryArr[0]}`;
+            option.innerHTML = `${categoryArr.name}`;
+            option.value = `${categoryArr.code}`;
+
             selectt.appendChild(option);
         });
-        this.el.querySelector('.catalog-filters').appendChild(selectt);
-
-
         let that = this;
-        selectt.addEventListener('change', function(){
-            that.filters.activeCategory = this.value;
-            // console.log(that.filters.activeCategory);
-            that.load();
-        });
+
+       selectt.addEventListener('change', function(){
+           that.filters.activeCategory = this.value;
+           that.load();
+       })
     }
 
     render(){
         let catalogProductsBox = this.el.querySelector('.catalog-products');
         catalogProductsBox.innerHTML = '';
-        this.products.forEach((product)=>{
+
+        this.products.forEach((product) => {
             product.render(catalogProductsBox);
         });
     }
@@ -105,54 +97,50 @@ class Catalog {
         let paginationEl = this.el.querySelector('.catalog-pagination');
         paginationEl.innerHTML = '';
 
-        for(let i = 1; i<= paginationConfig.countPage; i++) {
+        for (let i=1; i<=paginationConfig.countPage; i++){
             let paginationItem = document.createElement('div');
             paginationItem.classList.add('catalog-pagination-item');
-            paginationItem.innerHTML = i;
 
-            if(i==paginationConfig.nowPage) {
+            if (i == paginationConfig.nowPage){
                 paginationItem.classList.add('active');
             }
 
-            paginationItem.setAttribute('data-page-id', i);
-            let that = this;
+            paginationItem.innerHTML = i;
+            paginationItem.setAttribute('data_page_id', i);
 
+            let that = this;
             paginationItem.addEventListener('click', function(){
-                let pageNum = this.getAttribute('data-page-id');
+                let pageNum = this.getAttribute('data_page_id');
                 that.load(pageNum);
             });
-            paginationEl.appendChild(paginationItem);  
+
+            paginationEl.appendChild( paginationItem);
         }
     }
     load(page = 1){
         this.preloadOn();
         let xhr = new XMLHttpRequest();
         let path = `/handlers/catalog_handler.php?page=${page}&section=${this.section}`;
-
-        if( this.filters.activePrice != null) {
-            path += `&filters_price=${this.filters.activePrice}`
+        // console.log(this.filters.activePrice);
+        if (this.filters.activePrice != null){
+            path += `&filters_price=${this.filters.activePrice}`;
         }
-        if( this.filters.activeCategory != null) {
-            path += `&filter_category=${this.filters.activeCategory}`
+        if (this.filters.activeCategory != null){
+            path += `&filter_category=${this.filters.activeCategory}`;
         }
-        console.log(path);
-
+        
         xhr.open('GET', path);
         xhr.send();
-
-        xhr.addEventListener('load', ()=>{
-            //console.log(xhr.responseText);
+        xhr.addEventListener('load', () => {
             let data = JSON.parse(xhr.responseText);
             this.paginationRender(data.pagination);
-            console.log(data);
-
-            //Тут пойдет код заполнения массива this.products
             this.products = [];
-            data.products.forEach((productsItem)=>{
-                this.products.push(new Product(productsItem.name, productsItem.price, productsItem.img_src, productsItem.id));
+            data.products.forEach((productItem)=>{
+              this.products.push( new Product (productItem.name, productItem.price, productItem.img_src, productItem.id) );  
             });
-
+            this.filters.category = data.category;
             console.log(this.products);
+            this.renderCategory();
             this.render();
             this.preloadOff();
         });
@@ -160,4 +148,27 @@ class Catalog {
 }
 
 let catalog = new Catalog();
+// catalog.addProducts([
+//     new Product('Кроссовки', 11000, '/images/1.png', 1),
+//     new Product('Футболка', 3000, '/images/2.png', 2)
+// ]);
 catalog.load();
+
+// setTimeout(() =>{
+//     catalog.preloadOn();
+// }, 1000);
+// setTimeout(() =>{
+//     catalog.preloadOff();
+// }, 2000);
+
+// let boots = new Product('Кроссовки', 11000, '/images/1.png', 1);
+// let tshirts = new Product('Футболка', 3000, '/images/2.png', 2);
+// console.log(boots);
+// console.log(tshirts);
+
+// // boots.show();
+// // tshirts.show();
+
+// let catalogProductsBox = document.querySelector('.catalog-products');
+// boots.render(catalogProductsBox);
+// tshirts.render(catalogProductsBox);

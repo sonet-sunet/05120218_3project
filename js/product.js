@@ -1,5 +1,4 @@
-let btn = document.querySelector('.add-to-basket');
-
+let btn = document.querySelector('.add_to_basket');
 btn.addEventListener('click', function(){
     let productId = this.getAttribute('data-product-id');
 

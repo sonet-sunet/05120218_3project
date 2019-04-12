@@ -1,4 +1,4 @@
-<?php 
+<?php
     require_once($_SERVER['DOCUMENT_ROOT'].'/config/configuration.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/config/functions.php');
 
@@ -31,7 +31,7 @@
     $count_rows = mysqli_fetch_assoc($result_count_rows_arr)['len'];
     
 
-    $count_products_on_page = 5;
+    $count_products_on_page = 8;
     $count_page = ceil($count_rows / $count_products_on_page); 
 
 
@@ -73,7 +73,7 @@
     }
 
 
-    $sql_name_category = "SELECT * FROM category";
+    $sql_name_category = "SELECT name, code FROM category";
     $result_name_category = mysqli_query($db, $sql_name_category);
     while( $row = mysqli_fetch_assoc($result_name_category) ){
         $response['category'][]= $row;

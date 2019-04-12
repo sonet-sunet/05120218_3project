@@ -1,8 +1,9 @@
-<?php 
+<?php
+    
 $pageConfig = [
-    'title'=>'Корзина',
-    'cssFiles'=>[
-        '/css/style.css',
+    'title' => 'Корзина',
+    'cssFiles' => [
+        'css/style.css',
         '/css/basket.css'
     ],
     'jsFiles'=>[
@@ -11,11 +12,12 @@ $pageConfig = [
     ]
 ];
 include($_SERVER['DOCUMENT_ROOT'].'/parts/header.php');
+
 session_start();
 d($_SESSION);
 
 $template = [
-    'products'=>[]
+    'products' => []
 ];
 
 foreach($_SESSION['basket'] as $basketItem) {
@@ -89,6 +91,6 @@ foreach($_SESSION['basket'] as $basketItem) {
     <?php endif; ?> 
 </table>
 
-<?php 
+<?php
     include($_SERVER['DOCUMENT_ROOT'].'/parts/footer.php');
 ?>
